@@ -1,0 +1,119 @@
+syntax = "proto3";
+package ProtoMessage;
+option java_package = "com.yongyoung.dream";
+option java_multiple_files = true;
+option java_outer_classname = "MapProto";
+option go_package="message";
+//import "Player.proto";
+
+
+//同步玩家数据
+message MapSyncResponse{
+    int64 playerId                          = 1; //玩家id
+    int32 posX                              = 2; //位置X
+    int32 posZ                              = 3; //位置Z
+}
+
+//请求移动
+message MapPosRequest{
+    int64 playerId                          = 1; //玩家id
+    int32 posX                              = 2; //位置X
+    int32 posZ                              = 3; //位置Z
+}
+//移动返回
+message MapPosResponse{
+    int64 playerId                          = 1; //玩家id
+    int32 posX                              = 2; //位置X
+    int32 posZ                              = 3; //位置Z
+}
+
+
+//游戏准备
+message GameStartRequest{
+    int64 playerId                  	= 1; //玩家id
+}
+
+
+//游戏开始
+message GameStartResponse{
+    int64 playerId                  	= 1; //玩家id
+    repeated HeroInfo selfHeros             = 2; //英雄信息
+    repeated HeroInfo otherHeros            = 3; //英雄信息
+    int32 flag				                = 4; //阵营
+    int64 time                        = 5; //时间
+}
+
+
+
+//英雄列表请求
+message HeroListRequest{
+    int64 playerId                  	= 1; //玩家id
+    repeated HeroInfo item                  = 2; //英雄信息
+    int32 flag				= 3; //阵营
+}
+
+
+//英雄列表返回
+message HeroListResponse{
+    int64 playerId                  	= 1; //玩家id
+    repeated HeroInfo item                  = 2; //英雄信息
+    int32 flag				= 3; //阵营
+}
+
+
+//英雄信息
+message HeroInfo{
+    int64 playerId                          = 1; //玩家id
+    int64 heroId                            = 2; //英雄id
+    int64 heroCfgId                         = 3; //配置id
+    int32 posX                              = 4; //位置X
+    int32 posZ                              = 5; //位置Z
+}
+
+
+//英雄位置请求
+message HeroPosRequest{
+    int64 playerId                  	= 1; //玩家id
+    HeroInfo item                  = 2; //英雄信息
+}
+
+//英雄位置返回
+message HeroPosResponse{
+    int64 playerId                  	= 1; //玩家id
+    HeroInfo item                  = 2; //英雄信息
+}
+
+// 射门请求
+message ShootBallRequest{
+    int64 playerId = 1;  //玩家id
+    int64 heroId = 2;    //英雄id
+    int32 posX = 3;      //位置X
+    int32 posZ = 4;      //位置Z
+}
+
+// 射门返回
+message ShootBallResponse{
+    int64 playerId = 1;  //玩家id
+    int64 heroId = 2;    //英雄id
+    int32 posX = 3;      //位置X
+    int32 posZ = 4;      //位置Z
+}
+
+// 得分请求
+message GameScoreRequest{
+    int64 playerId = 1;  //玩家id
+    int32 flag = 2;      //得分方
+}
+
+// 得分返回
+message GameScoreResponse{
+    int64 playerId = 1;  //玩家id
+    int32 flag = 2;      //得分方
+    int32 score = 3;     //得分
+}
+
+// 游戏结束返回
+message GameOverResponse{
+    int64 playerId = 1;  //玩家id
+    int32 flag = 2;      //胜利方
+}

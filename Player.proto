@@ -1,0 +1,49 @@
+syntax = "proto3";
+package ProtoMessage;
+option java_package = "com.yongyoung.dream";
+option java_multiple_files = true;
+option java_outer_classname = "PlayerProto";
+option go_package="message";
+
+
+
+//玩家信息请求 （网关请求）
+message PlayerInfoRequest{
+    int64 userId                            = 1; //用户id
+}
+//玩家信息请求
+message PlayerInfoResponse{
+    int64 userId                            = 1; //用户id
+    PlayerInfo player                       = 2; //玩家信息
+}
+
+//玩家离线请求 （网关请求）
+message PlayerOffLineRequest{
+    int64 userId                            = 1; //用户id
+}
+
+// 玩家数据同步
+message PlayerSyncResponse{
+    int64 userId                            = 1; //用户id
+    int32 isOnline                          = 2; //是否在线 0-离线 1-在线
+    PlayerInfo player                       = 3; //玩家信息
+}
+
+//玩家信息
+message PlayerInfo{
+    int64 playerId                          = 1; //玩家id
+    int32 level                             = 2; //等级
+    int64 exp                               = 3; //经验
+    string name                             = 4; //昵称
+    int32 posX                              = 5; //位置X
+    int32 posZ                              = 6; //位置Z
+    int32 score								              = 7; //分数
+    int32 people							              = 8; //当前人数
+    int32 win								                = 9; //战胜次数
+    int32 lose								              = 10; //失败次数
+}
+
+
+
+
+
