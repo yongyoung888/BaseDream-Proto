@@ -37,10 +37,11 @@ message PlayerInfo{
     string name                             = 4; //昵称
     int32 posX                              = 5; //位置X
     int32 posZ                              = 6; //位置Z
-    int32 score								              = 7; //分数
-    int32 people							              = 8; //当前人数
-    int32 win								                = 9; //战胜次数
-    int32 lose								              = 10; //失败次数
+    int32 score								= 7; //分数
+    int32 people							= 8; //当前人数
+    int32 win								= 9; //战胜次数
+    int32 lose								= 10; //失败次数
+	int64 food								= 11; //粮食数量
 }
 
 
