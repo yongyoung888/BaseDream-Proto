@@ -1,4 +1,5 @@
 syntax = "proto3";
+import "Map.proto";
 package ProtoMessage;
 option java_package = "com.yongyoung.dream";
 option java_multiple_files = true;
@@ -42,6 +43,7 @@ message PlayerInfo{
     int32 win								= 9; //战胜次数
     int32 lose								= 10; //失败次数
 	int64 food								= 11; //粮食数量
+	repeated SlotInfo slots					= 12; //地块信息
 }
 
 

@@ -117,3 +117,25 @@ message GameOverResponse{
     int64 playerId = 1;  //玩家id
     int32 flag = 2;      //胜利方
 }
+
+// 塔防地格信息
+message SlotInfo{
+	int32 posX = 1;		//地块坐标X
+	int32 posZ = 2;		//地块坐标Z
+	int32 slotType = 3; //地块类型
+	int32 defenser = 4;	//防御者
+}
+
+// 塔防地块信息
+message SlotSetRequest{
+	int64 playerId = 1;	//玩家id
+	int32 type = 2;   	//操作类型：1、填加，  2、删除
+	SlotInfo info = 3; 	//地块信息
+}
+
+// 塔防地块信息
+message SlotSetResponse{
+	int64 playerId = 1;	//玩家id
+	int32 type = 2;   	//操作类型：1、填加，  2、删除
+	SlotInfo info = 3; 	//地块信息
+}

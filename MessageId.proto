@@ -55,4 +55,7 @@ enum MID{
   GameScoreRes = 100912; //得分返回
 
   GameOverRes = 100913; //游戏结束返回
+  
+  SlotSetReq = 200100; //地格设置信息
+  SlotSetRes = 200101; //地格设置信息返回
 }
