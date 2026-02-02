@@ -46,7 +46,46 @@ message PlayerInfo{
 	repeated SlotInfo slots					= 12; //地块信息
 }
 
+//他人信息
+message OtherPlayerSimpleInfo{
+	int64 playerId                          = 1; //玩家id
+    int32 level                             = 2; //等级
+    string name                             = 3; //昵称
+}
 
+//他人详细信息
+message OtherPlayerInfo{
+	int64 playerId                          = 1; //玩家id
+    int32 level                             = 2; //等级
+    int64 exp                               = 3; //经验
+    string name                             = 4; //昵称
+    int32 posX                              = 5; //位置X
+    int32 posZ                              = 6; //位置Z
+    int32 score								= 7; //分数
+    int32 people							= 8; //当前人数
+    int32 win								= 9; //战胜次数
+    int32 lose								= 10; //失败次数
+	int64 food								= 11; //粮食数量
+	repeated SlotInfo slots					= 12; //地块信息
+}
 
+//玩家列表
+message PlayerListRequest{
+    
+}
 
+//玩家列表
+message PlayerListResponse{
+    repeated OtherPlayerSimpleInfo players                       = 1; //玩家信息
+}
+
+//攻击请求
+message FightPlayerRequest{
+    int64 playerId                            = 1; //用户id
+}
+
+//玩家列表
+message FightPlayerResponse{
+    OtherPlayerInfo player                       = 1; //玩家信息
+}
 

@@ -27,6 +27,12 @@ enum MID{
 
   PlayerOffLineReq = 100202; //角色离线
   PlayerSyncRes = 100203; //角色数据同步
+  
+  PlayerListReq = 100210; //请求玩家列表
+  PlayerListRes = 100211; //玩家列表返回
+  
+  FightPlayerReq = 100212; //请求攻击玩家信息
+  FightPlayerRes = 100213; //攻击玩家信息返回
 
   //角色模块100300-100400
   ItemListReq = 100300;  //道具列表
