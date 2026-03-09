@@ -51,6 +51,8 @@ message OtherPlayerSimpleInfo{
 	int64 playerId                          = 1; //玩家id
     int32 level                             = 2; //等级
     string name                             = 3; //昵称
+	int32 posX                              = 4; //位置X
+    int32 posZ                              = 5; //位置Z
 }
 
 //他人详细信息
