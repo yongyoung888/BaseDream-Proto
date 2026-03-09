@@ -33,6 +33,9 @@ enum MID{
   
   FightPlayerReq = 100212; //请求攻击玩家信息
   FightPlayerRes = 100213; //攻击玩家信息返回
+  
+  PlayerRenameReq = 100214; //玩家改名
+  PlayerRenameRes = 100215; //玩家改名返回
 
   //角色模块100300-100400
   ItemListReq = 100300;  //道具列表

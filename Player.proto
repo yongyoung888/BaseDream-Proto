@@ -91,3 +91,14 @@ message FightPlayerResponse{
     OtherPlayerInfo player                       = 1; //玩家信息
 }
 
+//改名请求
+message PlayerRenameRequest{
+    int64 playerId                            = 1; //用户id
+	string name 								= 2; //昵称
+}
+
+//改名返回
+message PlayerRenameResponse{
+    OtherPlayerInfo player                       = 1; //玩家信息
+}
+
