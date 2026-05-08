@@ -20,6 +20,22 @@ message HttpResponse{
 
 
 
+//璁剧疆椤?
+message SettingItem{
+  string key                  = 1; //閿?
+  string value                = 2; //鍊?
+}
+
+//淇濆瓨璁剧疆璇锋眰
+message SaveSettingRequest{
+  repeated SettingItem items  = 1; //璁剧疆椤瑰垪琛?
+}
+
+//淇濆瓨璁剧疆杩斿洖
+message SaveSettingResponse{
+  repeated SettingItem items  = 1; //璁剧疆椤瑰垪琛?
+}
+
 //rpc
 service CommonRpcService{
   //http请求

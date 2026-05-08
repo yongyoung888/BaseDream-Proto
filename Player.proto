@@ -91,6 +91,18 @@ message FightPlayerResponse{
     OtherPlayerInfo player                       = 1; //玩家信息
 }
 
+//战斗结果请求
+message FightResultRequest{
+    int64 playerId                               = 1; //用户id
+}
+
+//战斗结果返回
+message FightResultResponse{
+    bool isWin                                  = 1; //是否胜利
+    int32 plunderPeople                         = 2; //掠夺人口数
+    int64 plunderFood                           = 3; //掠夺粮食数
+}
+
 //改名请求
 message PlayerRenameRequest{
     int64 playerId                            = 1; //用户id

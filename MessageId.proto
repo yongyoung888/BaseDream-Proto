@@ -18,6 +18,8 @@ enum MID{
   LoginRes = 100001; //登录
   HeartReq = 100002; //心跳
   HeartRes = 100003; //心跳
+  SaveSettingReq = 100004; //保存设置
+  SaveSettingRes = 100005; //保存设置返回
 
   //充值模块100100-100200
 
@@ -36,6 +38,9 @@ enum MID{
   
   PlayerRenameReq = 100214; //玩家改名
   PlayerRenameRes = 100215; //玩家改名返回
+  
+  FightResultReq = 100216; //战斗结果请求
+  FightResultRes = 100217; //战斗结果返回
 
   //角色模块100300-100400
   ItemListReq = 100300;  //道具列表
