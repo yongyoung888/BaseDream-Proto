@@ -53,6 +53,8 @@ message OtherPlayerSimpleInfo{
     string name                             = 3; //昵称
 	int32 posX                              = 4; //位置X
     int32 posZ                              = 5; //位置Z
+    int32 people                            = 6; //当前人数
+    int32 rank                              = 7; //排名
 }
 
 //他人详细信息
