@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+package ProtoMessage;
+option java_package = "com.yongyoung.dream";
+option java_multiple_files = true;
+option java_outer_classname = "ChatProto";
+option go_package = "message";
+
+enum ChatChannelType {
+  CHAT_CHANNEL_UNKNOWN = 0;
+  CHAT_CHANNEL_WORLD = 1;
+  CHAT_CHANNEL_PRIVATE = 2;
+  CHAT_CHANNEL_DISCUSSION = 3;
+}
+
+message ChatMessage {
+  int64 messageId = 1;
+  ChatChannelType channelType = 2;
+  int64 conversationId = 3;
+  int64 senderId = 4;
+  string senderName = 5;
+  string content = 6;
+  int64 sentAt = 7;
+  string clientMessageId = 8;
+}
+
+message ChatSendRequest {
+  ChatChannelType channelType = 1;
+  int64 targetPlayerId = 2;
+  int64 discussionGroupId = 3;
+  string content = 4;
+  string clientMessageId = 5;
+}
+
+message ChatSendResponse {
+  bool success = 1;
+  string error = 2;
+  ChatMessage message = 3;
+}
+
+message ChatMessagePush {
+  ChatMessage message = 1;
+}
+
+message ChatHistoryRequest {
+  ChatChannelType channelType = 1;
+  int64 conversationId = 2;
+  int64 beforeMessageId = 3;
+  int32 limit = 4;
+}
+
+message ChatHistoryResponse {
+  repeated ChatMessage messages = 1;
+}
+
+message DiscussionGroupInfo {
+  int64 groupId = 1;
+  string name = 2;
+  int64 ownerId = 3;
+  repeated int64 memberIds = 4;
+  int64 createdAt = 5;
+}
+
+message DiscussionGroupCreateRequest {
+  string name = 1;
+  repeated int64 memberIds = 2;
+}
+
+message DiscussionGroupCreateResponse {
+  bool success = 1;
+  string error = 2;
+  DiscussionGroupInfo group = 3;
+}
+
+message DiscussionGroupListRequest {
+}
+
+message DiscussionGroupListResponse {
+  repeated DiscussionGroupInfo groups = 1;
+}

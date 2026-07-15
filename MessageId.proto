@@ -1,4 +1,4 @@
-﻿syntax = "proto3";
+syntax = "proto3";
 package ProtoMessage;
 option java_package = "com.yongyoung.dream";
 option go_package = "message";
@@ -10,6 +10,17 @@ option java_multiple_files = true;
 // 娑堟伅id鏋氫妇鏄秷鎭粨鏋勪綋鍚嶇О鎴柇鏈€鍚庡洓涓瓧绗︼紝閫氳繃缁撴瀯浣撳悕鑾峰彇娑堟伅id蹇呴』婊¤冻杩欒鑼?
 enum MID{
   None = 0;
+  // Chat 100230-100239
+  ChatSendReq = 100230;
+  ChatSendRes = 100231;
+  ChatPushRes = 100232;
+  ChatHistoryReq = 100233;
+  ChatHistoryRes = 100234;
+  DiscussionGroupCreateReq = 100235;
+  DiscussionGroupCreateRes = 100236;
+  DiscussionGroupListReq = 100237;
+  DiscussionGroupListRes = 100238;
+
   ServerRegisterUpdateReq = 1;        //鏈嶅姟鍣ㄦ敞鍐?
   ServerRegisterUpdateRes = 2;        //鏈嶅姟鍣ㄦ敞鍐?
 
@@ -44,6 +55,8 @@ enum MID{
 
   RankReq = 100218; //排行榜请求
   RankRes = 100219; //排行榜返回
+  VillageAttackReq = 100220; // PVE村庄攻击请求
+  VillageAttackRes = 100221; // PVE村庄攻击结算
 
   //瑙掕壊妯″潡100300-100400
   ItemListReq = 100300;  //閬撳叿鍒楄〃
@@ -71,7 +84,10 @@ enum MID{
   GameScoreReq = 100911; //寰楀垎璇锋眰
   GameScoreRes = 100912; //寰楀垎杩斿洖
 
-  GameOverRes = 100913; //娓告垙缁撴潫杩斿洖
+  GameOverRes = 100913;
+
+  WorldViewportReq = 100914; // World viewport request
+  WorldViewportRes = 100915; // Incremental chunk response
   
   SlotSetReq = 200100; //鍦版牸璁剧疆淇℃伅
   SlotSetRes = 200101; //鍦版牸璁剧疆淇℃伅杩斿洖

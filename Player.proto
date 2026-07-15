@@ -105,6 +105,23 @@ message FightResultResponse{
     int64 plunderFood                           = 3; //掠夺粮食数
 }
 
+// PVE village attack. The server resolves configured rewards authoritatively.
+message VillageAttackRequest{
+    int64 playerId = 1;
+    int32 villageId = 2;
+}
+
+message VillageAttackResponse{
+    bool success = 1;
+    int32 villageId = 2;
+    int32 rewardPeople = 3;
+    int64 rewardFood = 4;
+    int32 totalPeople = 5;
+    int64 totalFood = 6;
+    string error = 7;
+    int64 respawnAt = 8;
+}
+
 //改名请求
 message PlayerRenameRequest{
     int64 playerId                            = 1; //用户id

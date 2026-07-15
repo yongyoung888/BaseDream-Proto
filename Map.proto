@@ -29,6 +29,55 @@ message MapPosResponse{
 
 
 //游戏准备
+
+// World map viewport request. Known revisions allow incremental responses.
+message WorldChunkVersion {
+    int32 chunkX = 1;
+    int32 chunkZ = 2;
+    int64 revision = 3;
+}
+message WorldViewportRequest {
+    int32 minChunkX = 1;
+    int32 maxChunkX = 2;
+    int32 minChunkZ = 3;
+    int32 maxChunkZ = 4;
+    repeated WorldChunkVersion knownChunks = 5;
+}
+message WorldTileInfo {
+    int32 localX = 1;
+    int32 localZ = 2;
+    int32 type = 3;
+    int32 level = 4;
+    int64 ownerId = 5;
+}
+message WorldBlockInfo {
+    int32 blockX = 1;
+    int32 blockZ = 2;
+    repeated WorldTileInfo tiles = 3;
+}
+message WorldChunkInfo {
+    int32 chunkX = 1;
+    int32 chunkZ = 2;
+    int64 revision = 3;
+    repeated WorldBlockInfo blocks = 4;
+}
+message WorldVillageInfo {
+    int32 villageId = 1;
+    string name = 2;
+    int32 posX = 3;
+    int32 posZ = 4;
+    string prefab = 5;
+    int32 tileRadius = 6;
+    int64 food = 7;
+    int32 people = 8;
+}
+message WorldViewportResponse {
+    repeated WorldChunkInfo chunks = 1;
+    repeated WorldVillageInfo villages = 2;
+    int64 serverTime = 3;
+    int64 nextVillageRefreshAt = 4;
+}
+
 message GameStartRequest{
     int64 playerId                  	= 1; //玩家id
 }
