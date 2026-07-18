@@ -1,0 +1,96 @@
+syntax = "proto3";
+package ProtoMessage;
+option java_package = "com.yongyoung.dream";
+option java_multiple_files = true;
+option java_outer_classname = "TowerDefenseProto";
+option go_package = "message";
+
+enum TowerDefensePlacementType {
+    TOWER_DEFENSE_PLACEMENT_UNSPECIFIED = 0;
+    TOWER_DEFENSE_ROAD = 1;
+    TOWER_DEFENSE_POINT = 2;
+    TOWER_DEFENSE_HERO = 3;
+}
+
+message TowerDefensePlacement {
+    TowerDefensePlacementType type = 1;
+    int32 posX = 2;
+    int32 posZ = 3;
+    int32 pathIndex = 4;
+    int32 configId = 5;
+    int64 heroId = 6;
+}
+
+message TowerDefenseLayout {
+    int64 ownerPlayerId = 1;
+    int64 revision = 2;
+    repeated TowerDefensePlacement placements = 3;
+    int64 updatedAt = 4;
+}
+
+message TowerDefenseLayoutGetRequest {
+    int64 playerId = 1;
+}
+
+message TowerDefenseLayoutGetResponse {
+    bool success = 1;
+    TowerDefenseLayout layout = 2;
+    string error = 3;
+}
+
+message TowerDefenseLayoutSaveRequest {
+    int64 playerId = 1;
+    repeated TowerDefensePlacement placements = 2;
+}
+
+message TowerDefenseLayoutSaveResponse {
+    bool success = 1;
+    TowerDefenseLayout layout = 2;
+    string error = 3;
+}
+
+message TowerBattleStartRequest {
+    int64 defenderPlayerId = 1;
+}
+
+message TowerBattleStartResponse {
+    bool success = 1;
+    string battleId = 2;
+    int64 defenderPlayerId = 3;
+    TowerDefenseLayout defenderLayout = 4;
+    int64 serverTime = 5;
+    int64 endAt = 6;
+    int32 requiredArrivals = 7;
+    string error = 8;
+}
+
+message TowerBattleArriveRequest {
+    string battleId = 1;
+    int64 soldierSequence = 2;
+}
+
+message TowerBattleArriveResponse {
+    bool success = 1;
+    string battleId = 2;
+    int32 arrivedCount = 3;
+    int32 requiredArrivals = 4;
+    bool isFinished = 5;
+    bool isWin = 6;
+    int64 endAt = 7;
+    string error = 8;
+}
+
+message TowerBattleFinishRequest {
+    string battleId = 1;
+}
+
+message TowerBattleFinishResponse {
+    bool success = 1;
+    string battleId = 2;
+    int32 arrivedCount = 3;
+    int32 requiredArrivals = 4;
+    bool isFinished = 5;
+    bool isWin = 6;
+    int64 endAt = 7;
+    string error = 8;
+}

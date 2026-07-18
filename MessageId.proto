@@ -10,6 +10,18 @@ option java_multiple_files = true;
 // 娑堟伅id鏋氫妇鏄秷鎭粨鏋勪綋鍚嶇О鎴柇鏈€鍚庡洓涓瓧绗︼紝閫氳繃缁撴瀯浣撳悕鑾峰彇娑堟伅id蹇呴』婊¤冻杩欒鑼?
 enum MID{
   None = 0;
+  // Mail 100400-100419
+  MailListReq = 100400;
+  MailListRes = 100401;
+  MailSendReq = 100402;
+  MailSendRes = 100403;
+  MailReadReq = 100404;
+  MailReadRes = 100405;
+  MailClaimReq = 100406;
+  MailClaimRes = 100407;
+  MailDeleteReq = 100408;
+  MailDeleteRes = 100409;
+  MailPushRes = 100410;
   // Chat 100230-100239
   ChatSendReq = 100230;
   ChatSendRes = 100231;
@@ -20,6 +32,18 @@ enum MID{
   DiscussionGroupCreateRes = 100236;
   DiscussionGroupListReq = 100237;
   DiscussionGroupListRes = 100238;
+
+  // Tower defense 100240-100249
+  TowerDefenseLayoutGetReq = 100240;
+  TowerDefenseLayoutGetRes = 100241;
+  TowerDefenseLayoutSaveReq = 100242;
+  TowerDefenseLayoutSaveRes = 100243;
+  TowerBattleStartReq = 100244;
+  TowerBattleStartRes = 100245;
+  TowerBattleArriveReq = 100246;
+  TowerBattleArriveRes = 100247;
+  TowerBattleFinishReq = 100248;
+  TowerBattleFinishRes = 100249;
 
   ServerRegisterUpdateReq = 1;        //鏈嶅姟鍣ㄦ敞鍐?
   ServerRegisterUpdateRes = 2;        //鏈嶅姟鍣ㄦ敞鍐?
