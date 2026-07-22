@@ -1,0 +1,82 @@
+syntax = "proto3";
+package ProtoMessage;
+option java_package = "com.yongyoung.dream";
+option java_multiple_files = true;
+option java_outer_classname = "HeroProto";
+option go_package = "message";
+
+message OwnedHeroInfo {
+    int64 heroId = 1;
+    int32 heroCfgId = 2;
+    int32 level = 3;
+    int32 attack = 4;
+    int32 loyalty = 5; // 0-10000 basis points
+    int64 lastLoyaltyAt = 6;
+    int64 acquiredAt = 7;
+}
+
+message WanderingHeroInfo {
+    string encounterId = 1;
+    int32 heroCfgId = 2;
+    int32 level = 3;
+    int32 attack = 4;
+    int32 loyalty = 5; // 0-10000 basis points
+    int32 posX = 6;
+    int32 posZ = 7;
+    int64 expireAt = 8;
+}
+
+message HeroInventoryListRequest {}
+
+message HeroInventoryListResponse {
+    repeated OwnedHeroInfo heroes = 1;
+    int64 food = 2;
+    int64 serverTime = 3;
+}
+
+message HeroFeedRequest {
+    int64 heroId = 1;
+}
+
+message HeroFeedResponse {
+    bool success = 1;
+    OwnedHeroInfo hero = 2;
+    int64 food = 3;
+    string error = 4;
+}
+
+message HeroUpgradeRequest {
+    int64 heroId = 1;
+}
+
+message HeroUpgradeResponse {
+    bool success = 1;
+    OwnedHeroInfo hero = 2;
+    int64 food = 3;
+    int64 nextUpgradeFood = 4;
+    string error = 5;
+}
+
+message HeroWanderListRequest {
+    int32 minChunkX = 1;
+    int32 maxChunkX = 2;
+    int32 minChunkZ = 3;
+    int32 maxChunkZ = 4;
+}
+
+message HeroWanderListResponse {
+    repeated WanderingHeroInfo heroes = 1;
+    int64 serverTime = 2;
+    int64 nextRefreshAt = 3;
+}
+
+message HeroRecruitRequest {
+    string encounterId = 1;
+}
+
+message HeroRecruitResponse {
+    bool success = 1;
+    OwnedHeroInfo hero = 2;
+    string encounterId = 3;
+    string error = 4;
+}

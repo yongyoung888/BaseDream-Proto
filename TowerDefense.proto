@@ -1,4 +1,5 @@
 syntax = "proto3";
+import "Hero.proto";
 package ProtoMessage;
 option java_package = "com.yongyoung.dream";
 option java_multiple_files = true;
@@ -19,6 +20,7 @@ message TowerDefensePlacement {
     int32 pathIndex = 4;
     int32 configId = 5;
     int64 heroId = 6;
+    int32 heroAttack = 7;
 }
 
 message TowerDefenseLayout {
@@ -78,6 +80,7 @@ message TowerBattleArriveResponse {
     bool isWin = 6;
     int64 endAt = 7;
     string error = 8;
+    repeated OwnedHeroInfo plunderedHeroes = 9;
 }
 
 message TowerBattleFinishRequest {
@@ -93,4 +96,5 @@ message TowerBattleFinishResponse {
     bool isWin = 6;
     int64 endAt = 7;
     string error = 8;
+    repeated OwnedHeroInfo plunderedHeroes = 9;
 }

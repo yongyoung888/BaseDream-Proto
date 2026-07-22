@@ -112,6 +112,16 @@ enum MID{
 
   WorldViewportReq = 100914; // World viewport request
   WorldViewportRes = 100915; // Incremental chunk response
+  HeroInventoryListReq = 100916;
+  HeroInventoryListRes = 100917;
+  HeroFeedReq = 100918;
+  HeroFeedRes = 100919;
+  HeroWanderListReq = 100920;
+  HeroWanderListRes = 100921;
+  HeroRecruitReq = 100922;
+  HeroRecruitRes = 100923;
+  HeroUpgradeReq = 100924;
+  HeroUpgradeRes = 100925;
   
   SlotSetReq = 200100; //鍦版牸璁剧疆淇℃伅
   SlotSetRes = 200101; //鍦版牸璁剧疆淇℃伅杩斿洖

@@ -169,6 +169,9 @@ message GameOverResponse{
 
 // 塔防地格信息
 message SlotInfo{
+	int32 level = 5; // building level
+	string instanceId = 6; // stable building instance id
+	int64 attributeValue = 7; // effective configured building attribute
 	int32 posX = 1;		//地块坐标X
 	int32 posZ = 2;		//地块坐标Z
 	int32 slotType = 3; //地块类型
@@ -184,6 +187,10 @@ message SlotSetRequest{
 
 // 塔防地块信息
 message SlotSetResponse{
+	bool success = 4;
+	string error = 5;
+	int64 food = 6;
+	int32 people = 7;
 	int64 playerId = 1;	//玩家id
 	int32 type = 2;   	//操作类型：1、填加，  2、删除
 	SlotInfo info = 3; 	//地块信息
