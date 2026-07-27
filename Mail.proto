@@ -23,7 +23,13 @@ message MailInfo {
 }
 message MailListRequest {}
 message MailListResponse { repeated MailInfo mails = 1; }
-message MailSendRequest { int64 receiverId = 1; string receiverName = 2; string title = 3; string content = 4; }
+message MailSendRequest {
+  int64 receiverId = 1;
+  string receiverName = 2;
+  string title = 3;
+  string content = 4;
+  string receiverAccount = 5;
+}
 message MailSendResponse { bool success = 1; string error = 2; MailInfo mail = 3; }
 message MailReadRequest { int64 mailId = 1; }
 message MailReadResponse { bool success = 1; string error = 2; int64 mailId = 3; }

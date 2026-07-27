@@ -49,6 +49,7 @@ message WorldTileInfo {
     int32 type = 3;
     int32 level = 4;
     int64 ownerId = 5;
+    int64 food = 6;
 }
 message WorldBlockInfo {
     int32 blockX = 1;
@@ -70,12 +71,43 @@ message WorldVillageInfo {
     int32 tileRadius = 6;
     int64 food = 7;
     int32 people = 8;
+    int64 ownerId = 9;
+    bool ownedByViewer = 10;
+    bool attackable = 11;
+}
+message WorldTerritoryPoint {
+    int32 posX = 1;
+    int32 posZ = 2;
+}
+message WorldTerritoryInfo {
+    int64 ownerId = 1;
+    repeated WorldTerritoryPoint points = 2;
+    int32 gatherSpeedBonusBasisPoints = 3;
+    int32 recruitBonusBasisPoints = 4;
 }
 message WorldViewportResponse {
     repeated WorldChunkInfo chunks = 1;
     repeated WorldVillageInfo villages = 2;
     int64 serverTime = 3;
     int64 nextVillageRefreshAt = 4;
+    int64 nextResourceRefreshAt = 5;
+    repeated WorldTerritoryInfo territories = 6;
+}
+
+message WorldResourceGatherRequest {
+    int32 posX = 1;
+    int32 posZ = 2;
+}
+
+message WorldResourceGatherResponse {
+    bool success = 1;
+    string error = 2;
+    int32 posX = 3;
+    int32 posZ = 4;
+    int64 rewardFood = 5;
+    int64 totalFood = 6;
+    int64 respawnAt = 7;
+    int64 serverTime = 8;
 }
 
 message GameStartRequest{

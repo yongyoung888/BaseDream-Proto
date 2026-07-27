@@ -30,12 +30,15 @@ message ChatSendRequest {
   int64 discussionGroupId = 3;
   string content = 4;
   string clientMessageId = 5;
+  string targetAccount = 6;
 }
 
 message ChatSendResponse {
   bool success = 1;
   string error = 2;
   ChatMessage message = 3;
+  int64 targetPlayerId = 4;
+  string targetAccount = 5;
 }
 
 message ChatMessagePush {
@@ -47,10 +50,16 @@ message ChatHistoryRequest {
   int64 conversationId = 2;
   int64 beforeMessageId = 3;
   int32 limit = 4;
+  string targetAccount = 5;
 }
 
 message ChatHistoryResponse {
   repeated ChatMessage messages = 1;
+  ChatChannelType channelType = 2;
+  int64 conversationId = 3;
+  int64 targetPlayerId = 4;
+  string targetAccount = 5;
+  string error = 6;
 }
 
 message DiscussionGroupInfo {

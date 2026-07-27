@@ -53,6 +53,7 @@ message TowerDefenseLayoutSaveResponse {
 
 message TowerBattleStartRequest {
     int64 defenderPlayerId = 1;
+    int32 pveCastleId = 2;
 }
 
 message TowerBattleStartResponse {
@@ -64,6 +65,7 @@ message TowerBattleStartResponse {
     int64 endAt = 6;
     int32 requiredArrivals = 7;
     string error = 8;
+    int32 pveCastleId = 9;
 }
 
 message TowerBattleArriveRequest {
@@ -81,6 +83,12 @@ message TowerBattleArriveResponse {
     int64 endAt = 7;
     string error = 8;
     repeated OwnedHeroInfo plunderedHeroes = 9;
+    int32 pveCastleId = 10;
+    int64 rewardFood = 11;
+    int32 rewardPeople = 12;
+    int64 totalFood = 13;
+    int32 totalPeople = 14;
+    bool territoryUnlocked = 15;
 }
 
 message TowerBattleFinishRequest {
@@ -97,4 +105,10 @@ message TowerBattleFinishResponse {
     int64 endAt = 7;
     string error = 8;
     repeated OwnedHeroInfo plunderedHeroes = 9;
+    int32 pveCastleId = 10;
+    int64 rewardFood = 11;
+    int32 rewardPeople = 12;
+    int64 totalFood = 13;
+    int32 totalPeople = 14;
+    bool territoryUnlocked = 15;
 }
