@@ -22,7 +22,7 @@ enum MID{
   MailDeleteReq = 100408;
   MailDeleteRes = 100409;
   MailPushRes = 100410;
-  // Chat 100230-100239
+  // Chat 100230-100259
   ChatSendReq = 100230;
   ChatSendRes = 100231;
   ChatPushRes = 100232;
@@ -32,6 +32,12 @@ enum MID{
   DiscussionGroupCreateRes = 100236;
   DiscussionGroupListReq = 100237;
   DiscussionGroupListRes = 100238;
+  ChatReportReq = 100250;
+  ChatReportRes = 100251;
+  ChatBlockReq = 100252;
+  ChatBlockRes = 100253;
+  ChatBlockListReq = 100254;
+  ChatBlockListRes = 100255;
 
   // Tower defense 100240-100249
   TowerDefenseLayoutGetReq = 100240;

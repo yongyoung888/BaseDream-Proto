@@ -1,0 +1,13 @@
+syntax = "proto3";
+package ProtoMessage;
+option java_package = "com.yongyoung.dream";
+option java_multiple_files = true;
+option java_outer_classname = "ShopWalletProto";
+option go_package = "message";
+
+message ShopWalletRequest {
+}
+
+message ShopWalletResponse {
+    int64 diamonds = 1;
+}

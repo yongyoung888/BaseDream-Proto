@@ -1,0 +1,36 @@
+syntax = "proto3";
+import "Item.proto";
+package ProtoMessage;
+option java_package = "com.yongyoung.dream";
+option java_multiple_files = true;
+option java_outer_classname = "ShopProto";
+option go_package = "message";
+
+message ShopRechargeRequest {
+    int32 productId = 1;
+    string receiptData = 2;
+    bool sandbox = 3;
+    bool debugGrant = 4;
+}
+
+message ShopRechargeResponse {
+    bool success = 1;
+    int32 productId = 2;
+    int64 diamonds = 3;
+    int32 grantedDiamonds = 4;
+    string transactionId = 5;
+    bool duplicate = 6;
+    string error = 7;
+}
+
+message ShopBuyRequest {
+    int32 productId = 1;
+}
+
+message ShopBuyResponse {
+    bool success = 1;
+    int32 productId = 2;
+    int64 diamonds = 3;
+    ItemInfo item = 4;
+    string error = 5;
+}

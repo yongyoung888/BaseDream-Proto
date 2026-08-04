@@ -1,0 +1,14 @@
+diff --git a/MessageId.proto b/MessageId.proto
+--- a/MessageId.proto
++++ b/MessageId.proto
+@@ -121,4 +121,10 @@ enum MID{
+   HeroRecruitReq = 100922;
+   HeroRecruitRes = 100923;
+   HeroUpgradeReq = 100924;
+   HeroUpgradeRes = 100925;
++  ShopRechargeReq = 100310;
++  ShopRechargeRes = 100311;
++  ShopBuyReq = 100312;
++  ShopBuyRes = 100313;
++  ShopWalletReq = 100314;
++  ShopWalletRes = 100315;

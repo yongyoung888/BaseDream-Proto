@@ -13,6 +13,15 @@ enum ChatChannelType {
   CHAT_CHANNEL_DISCUSSION = 3;
 }
 
+enum ChatReportReason {
+  CHAT_REPORT_REASON_UNKNOWN = 0;
+  CHAT_REPORT_REASON_ABUSE = 1;
+  CHAT_REPORT_REASON_SPAM = 2;
+  CHAT_REPORT_REASON_SEXUAL_CONTENT = 3;
+  CHAT_REPORT_REASON_THREAT = 4;
+  CHAT_REPORT_REASON_OTHER = 5;
+}
+
 message ChatMessage {
   int64 messageId = 1;
   ChatChannelType channelType = 2;
@@ -60,6 +69,37 @@ message ChatHistoryResponse {
   int64 targetPlayerId = 4;
   string targetAccount = 5;
   string error = 6;
+}
+
+message ChatReportRequest {
+  int64 messageId = 1;
+  ChatReportReason reason = 2;
+  string detail = 3;
+}
+
+message ChatReportResponse {
+  bool success = 1;
+  string error = 2;
+  int64 reportId = 3;
+}
+
+message ChatBlockRequest {
+  int64 targetPlayerId = 1;
+  bool blocked = 2;
+}
+
+message ChatBlockResponse {
+  bool success = 1;
+  string error = 2;
+  int64 targetPlayerId = 3;
+  bool blocked = 4;
+}
+
+message ChatBlockListRequest {
+}
+
+message ChatBlockListResponse {
+  repeated int64 blockedPlayerIds = 1;
 }
 
 message DiscussionGroupInfo {
