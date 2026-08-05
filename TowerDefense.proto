@@ -66,6 +66,7 @@ message TowerBattleStartResponse {
     int32 requiredArrivals = 7;
     string error = 8;
     int32 pveCastleId = 9;
+    int32 stamina = 10;
 }
 
 message TowerBattleArriveRequest {

@@ -44,6 +44,7 @@ message PlayerInfo{
     int32 lose								= 10; //失败次数
 	int64 food								= 11; //粮食数量
 	repeated SlotInfo slots					= 12; //地块信息
+	int32 stamina                          = 13; // current stamina
 }
 
 //他人信息

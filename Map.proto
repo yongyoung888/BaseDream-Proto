@@ -50,6 +50,13 @@ message WorldTileInfo {
     int32 level = 4;
     int64 ownerId = 5;
     int64 food = 6;
+    WorldResourceType resourceType = 7;
+}
+
+enum WorldResourceType {
+    WORLD_RESOURCE_UNSPECIFIED = 0;
+    WORLD_RESOURCE_FOOD = 1;
+    WORLD_RESOURCE_STAMINA = 2;
 }
 message WorldBlockInfo {
     int32 blockX = 1;
@@ -108,6 +115,9 @@ message WorldResourceGatherResponse {
     int64 totalFood = 6;
     int64 respawnAt = 7;
     int64 serverTime = 8;
+    int32 rewardStamina = 9;
+    int32 totalStamina = 10;
+    WorldResourceType resourceType = 11;
 }
 
 message GameStartRequest{
