@@ -33,4 +33,6 @@ message ShopBuyResponse {
     int64 diamonds = 3;
     ItemInfo item = 4;
     string error = 5;
+    int32 rewardCropId = 6;
+    int32 seedCount = 7;
 }

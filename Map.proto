@@ -118,6 +118,9 @@ message WorldResourceGatherResponse {
     int32 rewardStamina = 9;
     int32 totalStamina = 10;
     WorldResourceType resourceType = 11;
+    int32 rewardSeedCropId = 12;
+    int32 rewardSeedCount = 13;
+    int32 totalSeedCount = 14;
 }
 
 message GameStartRequest{

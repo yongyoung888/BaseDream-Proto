@@ -130,6 +130,10 @@ enum MID{
   HeroUpgradeRes = 100925;
   WorldResourceGatherReq = 100926;
   WorldResourceGatherRes = 100927;
+  CropPlantReq = 100928;
+  CropPlantRes = 100929;
+  CropHarvestReq = 100930;
+  CropHarvestRes = 100931;
   
   SlotSetReq = 200100; //鍦版牸璁剧疆淇℃伅
   SlotSetRes = 200101; //鍦版牸璁剧疆淇℃伅杩斿洖

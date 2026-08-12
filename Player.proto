@@ -16,6 +16,7 @@ message PlayerInfoRequest{
 message PlayerInfoResponse{
     int64 userId                            = 1; //用户id
     PlayerInfo player                       = 2; //玩家信息
+    int64 serverTime                        = 3; // authoritative clock for crop growth
 }
 
 //玩家离线请求 （网关请求）
@@ -45,6 +46,51 @@ message PlayerInfo{
 	int64 food								= 11; //粮食数量
 	repeated SlotInfo slots					= 12; //地块信息
 	int32 stamina                          = 13; // current stamina
+	repeated SeedAmount seeds              = 14; // crop seed inventory
+	repeated CropState crops               = 15; // crops planted on inner-city farms
+}
+
+message SeedAmount {
+    int32 cropId = 1;
+    int32 count = 2;
+}
+
+message CropState {
+    string farmInstanceId = 1;
+    int32 cropId = 2;
+    int64 plantedAt = 3;
+    int64 readyAt = 4;
+}
+
+message CropPlantRequest {
+    int64 playerId = 1;
+    string farmInstanceId = 2;
+    int32 cropId = 3;
+}
+
+message CropPlantResponse {
+    bool success = 1;
+    string error = 2;
+    CropState crop = 3;
+    repeated SeedAmount seeds = 4;
+    int64 serverTime = 5;
+}
+
+message CropHarvestRequest {
+    int64 playerId = 1;
+    string farmInstanceId = 2;
+}
+
+message CropHarvestResponse {
+    bool success = 1;
+    string error = 2;
+    string farmInstanceId = 3;
+    int64 rewardFood = 4;
+    int64 totalFood = 5;
+    int32 rewardSeedCropId = 6;
+    int32 rewardSeedCount = 7;
+    repeated SeedAmount seeds = 8;
+    int64 serverTime = 9;
 }
 
 //他人信息
