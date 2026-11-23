@@ -13,6 +13,13 @@ message OwnedHeroInfo {
     int32 loyalty = 5; // 0-10000 basis points
     int64 lastLoyaltyAt = 6;
     int64 acquiredAt = 7;
+    int64 departureAt = 8; // zero-loyalty warning deadline, milliseconds
+    int64 lastFedAt = 9;
+    int32 skillLevel = 10;
+    int32 shards = 11;
+    int32 upgradeShards = 12;
+    int32 skillUpgradeShards = 13;
+    int32 maxSkillLevel = 14;
 }
 
 message WanderingHeroInfo {
@@ -47,6 +54,7 @@ message HeroFeedResponse {
 
 message HeroUpgradeRequest {
     int64 heroId = 1;
+    bool upgradeSkill = 2;
 }
 
 message HeroUpgradeResponse {
@@ -75,6 +83,7 @@ message HeroRecruitRequest {
 }
 
 message HeroRecruitResponse {
+    int32 shardsGranted = 5;
     bool success = 1;
     OwnedHeroInfo hero = 2;
     string encounterId = 3;
